@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myshop/widget/cart_item.dart';
 
 class CartModel {
   final String id;
@@ -14,9 +15,9 @@ class CartModel {
 }
 
 class Cart with ChangeNotifier {
-  Map<String, CartModel> _items = {};
+  Map<String, CartItem> _items = {};
 
-  Map<String, CartModel> get items {
+  Map<String, CartItem> get items {
     return {..._items};
   }
 
@@ -36,19 +37,23 @@ class Cart with ChangeNotifier {
     if (_items.containsKey(productId)) {
       _items.update(
           productId,
-          (existingCartItem) => CartModel(
+          (existingCartItem) => CartItem(
               id: existingCartItem.id,
               title: existingCartItem.title,
               price: existingCartItem.price,
-              quantity: existingCartItem.quantity + 1));
+              quantity: existingCartItem.quantity + 1,
+          productId: existingCartItem.productId,
+          ));
     } else {
       _items.putIfAbsent(
         productId,
-        () => CartModel(
+        () => CartItem(
             id: DateTime.now().toString(),
             title: title,
             price: price,
-            quantity: 1),
+            quantity: 1,
+          productId: productId,
+        ),
       );
     }
     notifyListeners();
