@@ -13,7 +13,7 @@ class CartScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Cart'),
+        title: const Text('Your Cart'),
       ),
       body: Column(
         children: [
@@ -21,7 +21,7 @@ class CartScreen extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 5,
-            margin: EdgeInsets.all(15),
+            margin: const EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -29,7 +29,7 @@ class CartScreen extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: Text('Total', style: TextStyle(fontSize: 20)),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Chip(

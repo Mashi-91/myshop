@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider:
   intl:
+  eva_icons_flutter:
 
 dev_dependencies:
   flutter_test:

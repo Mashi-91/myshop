@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../data/data.dart';
 import 'product.dart';
 
-class Products with ChangeNotifier {
-  List<Product> _items = data;
-  var _showFavoriteOnly = false;
+class ProductProvider with ChangeNotifier {
+  final List<Product> _items = data;
 
   List<Product> get showFavoriteOnly {
     return _items.where((prodItem) => prodItem.isFavorite).toList();

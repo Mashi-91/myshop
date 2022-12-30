@@ -9,7 +9,7 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final productId = ModalRoute.of(context)?.settings.arguments as String;
     final loadedProduct =
-        Provider.of<Products>(context, listen: false).findById(productId);
+        Provider.of<ProductProvider>(context, listen: false).findById(productId);
     return Scaffold(
       appBar: AppBar(
         title: Text(loadedProduct.title),
@@ -54,7 +54,7 @@ class ProductDetailScreen extends StatelessWidget {
           Card(
             elevation: 5,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 104, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 104, vertical: 20),
                   child: Text(loadedProduct.description)))
         ],
       ),

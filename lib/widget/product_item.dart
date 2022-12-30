@@ -24,13 +24,20 @@ class ProductItem extends StatelessWidget {
                       product.istogglefavorite();
                     },
                     icon: Icon(
-                      product.isFavorite ? Icons.favorite : Icons.favorite_outline,
+                      product.isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_outline,
                       color: Theme.of(context).primaryColor,
                     )),
               ),
               trailing: IconButton(
                   onPressed: () {
                     cart.addItem(product.id, product.price, product.title);
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Added item to cart!'),
+                          duration: Duration(seconds: 2),
+                        ));
                   },
                   icon: Icon(
                     Icons.shopping_cart_rounded,
@@ -42,7 +49,8 @@ class ProductItem extends StatelessWidget {
               )),
           child: GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(ProductDetailScreen.routname, arguments: product.id);
+              Navigator.of(context).pushNamed(ProductDetailScreen.routname,
+                  arguments: product.id);
             },
             child: Image.network(
               product.imageUrl,

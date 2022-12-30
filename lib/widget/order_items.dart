@@ -19,7 +19,7 @@ class _OrdersItemsState extends State<OrdersItems> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Column(
         children: [
           ListTile(
@@ -28,8 +28,8 @@ class _OrdersItemsState extends State<OrdersItems> {
                 DateFormat('dd/MM/yyyy-hh:mm').format(widget.order.dateTime)),
             trailing: IconButton(
               icon: _expanded
-                  ? Icon(Icons.expand_less_rounded)
-                  : Icon(Icons.expand_more_rounded),
+                  ? const Icon(Icons.expand_less_rounded)
+                  : const Icon(Icons.expand_more_rounded),
               onPressed: () {
                 setState(() {
                   _expanded = !_expanded;
@@ -40,7 +40,7 @@ class _OrdersItemsState extends State<OrdersItems> {
           if (_expanded)
             Container(
               height: min(widget.order.products.length * 20 + 10, 100),
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: ListView(
                 children: widget.order.products
                     .map((prod) => Row(
@@ -48,10 +48,10 @@ class _OrdersItemsState extends State<OrdersItems> {
                           children: [
                             Text(
                               prod.title,
-                              style: TextStyle(fontSize: 18),
+                              style: const TextStyle(fontSize: 18),
                             ),
                             Text('${prod.quantity} x \$${prod.price}',
-                            style: TextStyle(fontSize: 18, color: Colors.grey),
+                            style: const TextStyle(fontSize: 18, color: Colors.grey),
                             )
                           ],
                         ))

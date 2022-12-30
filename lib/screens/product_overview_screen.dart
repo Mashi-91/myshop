@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import '../data/data.dart';
 import '../providers/cart.dart';
 import '../screens/cart_screen.dart';
 import '../widget/203%20badge.dart';
 import 'package:provider/provider.dart';
 import '../widget/Drawer.dart';
 import '../widget/product_grid.dart';
-import '../data/data.dart';
 
 import '../providers/product.dart';
 
@@ -27,7 +27,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('MyShop'),
+        title: const Text('MyShop'),
         actions: [
           PopupMenuButton(
               onSelected: (FilterOption selectedValue) {
@@ -40,13 +40,13 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 });
               },
               itemBuilder: (ctx) => [
-                    PopupMenuItem(
-                      child: Text('Only Favorites'),
+                    const PopupMenuItem(
                       value: FilterOption.Favorite,
+                      child: Text('Only Favorites'),
                     ),
-                    PopupMenuItem(
-                      child: Text('Show All'),
+                    const PopupMenuItem(
                       value: FilterOption.All,
+                      child: Text('Show All'),
                     ),
                   ]),
           Consumer<Cart>(
@@ -60,7 +60,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 onPressed: () {
                   Navigator.of(context).pushNamed(CartScreen.routename);
                 },
-                icon: Icon(Icons.shopping_cart_rounded)),
+                icon: const Icon(Icons.shopping_cart_rounded)),
           )
         ],
       ),
